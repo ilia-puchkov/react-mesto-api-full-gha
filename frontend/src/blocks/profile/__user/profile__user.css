@@ -1,0 +1,26 @@
+.profile__user{
+  display: grid;
+  grid-template-areas:
+  'avatar name add-button'
+  'avatar occupation add-button';
+  grid-column-gap: 30px;
+  grid-row-gap: 16px;
+  grid-template-columns: 120px 1fr 150px;
+  width: 100%;
+}
+
+@media screen and (max-width: 879px) {
+  .profile__user {
+    grid-column-gap: 0px;
+    grid-row-gap: 10px;
+    max-width: 282px;
+    justify-content: center;
+    grid-template-areas: 
+    'avatar'
+    'name'
+    'occupation'
+    'add-button';
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px 1fr;
+  }
+}

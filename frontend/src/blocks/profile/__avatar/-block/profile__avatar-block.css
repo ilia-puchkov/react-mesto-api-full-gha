@@ -1,0 +1,4 @@
+.profile__avatar-block {
+  grid-area: avatar;
+  position: relative;
+}

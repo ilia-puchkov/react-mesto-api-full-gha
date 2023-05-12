@@ -1,0 +1,15 @@
+.form__subtitle_link {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.form__subtitle_link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

@@ -1,0 +1,10 @@
+.element__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding-left: 21px;
+  padding-right: 21px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
