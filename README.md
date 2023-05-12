@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 51.250.110.170
 
-Frontend https://...
+Frontend https://rerasmesto.students.nomoredomains.monster/
 
-Backend https://...
+Backend https://api.rerasmesto.students.nomoredomains.monster/

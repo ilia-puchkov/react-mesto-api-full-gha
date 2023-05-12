@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
 const router = require('./routes');
+const cors = require('./middlewares/cors');
 
 const { customError } = require('./middlewares/customError');
 
@@ -19,6 +20,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 });
 
 app.use(requestLogger);
+
+app.use(cors);
 
 app.use(router);
 
