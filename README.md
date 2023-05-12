@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.110.170
+IP-адрес <51.250.110.170>
 
 Frontend https://rerasmesto.students.nomoredomains.monster/
 
