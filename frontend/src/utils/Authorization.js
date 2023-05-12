@@ -13,7 +13,7 @@ class Authorization {
 
   // Регистрация
   register(data) {
-    return fetch(this._url + "/signup", {
+    return fetch(this._url + "/sign-up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ class Authorization {
 
   // Авторизация
   login(data) {
-    return fetch(this._url + "/signin", {
+    return fetch(this._url + "/sign-in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
