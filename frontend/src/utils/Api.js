@@ -96,9 +96,9 @@ class Api {
 }
 
 const api = new Api ({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-58',
+  url: 'https://api.rerasmesto.students.nomoredomains.monster',
   headers: {
-    authorization: 'a4314974-bcc2-444b-805d-7948fe80c06f',
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
     'content-type': 'application/json'
   },
 });

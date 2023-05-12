@@ -1,8 +1,8 @@
 const allowedCors = [
   'http://rerasmesto.students.nomoredomains.monster/',
   'https://rerasmesto.students.nomoredomains.monster/',
-  'https://api.rerasmesto.students.nomoredomains.monster/sign-in',
-  'https://api.rerasmesto.students.nomoredomains.monster/sign-in',
+  'http://api.rerasmesto.students.nomoredomains.monster',
+  'https://api.rerasmesto.students.nomoredomains.monster',
   'http://localhost:3000',
   'https://localhost:3000',
 ];

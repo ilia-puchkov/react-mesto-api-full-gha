@@ -46,7 +46,7 @@ class Authorization {
 }
 
 const auth = new Authorization({
-  baseUrl: "https://auth.nomoreparties.co",
+  baseUrl: "https://rerasmesto.students.nomoredomains.monster",
 });
 
 export default auth;
