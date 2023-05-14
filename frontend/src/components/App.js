@@ -188,7 +188,7 @@ function App() {
       .then((res) => {
         setIsRegisteredOk(true);
         setIsRegisterPopupOpen(true);
-        navigate("/sign-in", { replace: true });
+        navigate("/signin", { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -201,7 +201,7 @@ function App() {
   function handleLogout() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    navigate("/sign-in", { replace: true });
+    navigate("/signin", { replace: true });
   }
 
   //Проверка токена
@@ -247,9 +247,9 @@ function App() {
                 />
               }
             />
-            <Route path="/sign-in" element={<Login onLogin={handleLogin} />} />
+            <Route path="/signin" element={<Login onLogin={handleLogin} />} />
             <Route
-              path="/sign-up"
+              path="/signup"
               element={<Register onRegister={handleRegistration} />}
             />
           </Routes>

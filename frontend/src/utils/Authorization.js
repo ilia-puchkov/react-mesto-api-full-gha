@@ -13,7 +13,7 @@ class Authorization {
 
   // Регистрация
   register(data) {
-    return fetch(this._url + "/sign-up", {
+    return fetch(this._url + "/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ class Authorization {
 
   // Авторизация
   login(data) {
-    return fetch(this._url + "/sign-in", {
+    return fetch(this._url + "/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ class Authorization {
 }
 
 const auth = new Authorization({
-  baseUrl: "https://rerasmesto.students.nomoredomains.monster",
+  baseUrl: "https://api.rerasmesto.students.nomoredomains.monster",
 });
 
 export default auth;
