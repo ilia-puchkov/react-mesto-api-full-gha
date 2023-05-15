@@ -93,7 +93,7 @@ function App() {
 
   // Лайк
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     api
       .changeLikeCardStatus(card._id, !isLiked)
@@ -166,13 +166,14 @@ function App() {
   function handleLogin(data) {
     auth
       .login(data)
-      .then((res) => {
-        if (res.token) {
-          localStorage.setItem("jwt", res.token);
-          setIsLoggedIn(true);
-          setEmail(data.email);
-          navigate("/", { replace: true });
-        }
+      .then((data) => {
+        setIsLoggedIn(true);
+        //при запросе авторизации проверяет токен, который возвращает email пользователя
+        auth.checkToken(data.token).then((res) => {
+          setEmail(res.email);
+        });
+        localStorage.setItem('jwt', data.token);
+        navigate('/', { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -188,20 +189,13 @@ function App() {
       .then((res) => {
         setIsRegisteredOk(true);
         setIsRegisterPopupOpen(true);
-        navigate("/signin", { replace: true });
+        navigate("/sign-in", { replace: true });
       })
       .catch((err) => {
         console.log(err);
         setIsRegisteredOk(false);
         setIsRegisterPopupOpen(true);
       });
-  }
-
-  // Логаут
-  function handleLogout() {
-    localStorage.removeItem("jwt");
-    setIsLoggedIn(false);
-    navigate("/signin", { replace: true });
   }
 
   //Проверка токена
@@ -211,7 +205,7 @@ function App() {
       auth
         .checkToken(jwt)
         .then((res) => {
-          setEmail(res.data.email);
+          setEmail(res.email);
           setIsLoggedIn(true);
           navigate("/", { replace: true });
         })
@@ -220,6 +214,13 @@ function App() {
         });
     }
   };
+
+  // Логаут
+  function handleLogout() {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    navigate("/sign-in", { replace: true });
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -247,9 +248,9 @@ function App() {
                 />
               }
             />
-            <Route path="/signin" element={<Login onLogin={handleLogin} />} />
+            <Route path="/sign-in" element={<Login onLogin={handleLogin} />} />
             <Route
-              path="/signup"
+              path="/sign-up"
               element={<Register onRegister={handleRegistration} />}
             />
           </Routes>

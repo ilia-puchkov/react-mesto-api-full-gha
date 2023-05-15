@@ -9,17 +9,17 @@ function Header(props) {
       <img className="header__logo" src={headerLogo} alt="Логотип - Место" />
       <Routes>
         <Route
-          path="/signup"
+          path="/sign-up"
           element={
-            <Link to="/signin" className="header__link">
+            <Link to="/sign-in" className="header__link">
               Войти
             </Link>
           }
         />
         <Route
-          path="/signin"
+          path="/sign-in"
           element={
-            <Link to="/signup" className="header__link">
+            <Link to="/sign-up" className="header__link">
               Регистрация
             </Link>
           }
@@ -31,7 +31,7 @@ function Header(props) {
               <span className="header__email">{props.email}</span>
               <Link
                 className="header__link"
-                to="/signin"
+                to="/sign-in"
                 onClick={props.onLogout}
               >
                 Выйти
