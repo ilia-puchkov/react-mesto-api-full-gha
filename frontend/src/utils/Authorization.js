@@ -34,12 +34,12 @@ class Authorization {
   }
 
   // Проверка токена
-  checkToken(token) {
+  checkToken(jwt) {
     return fetch(this._url + "/users/me", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${jwt}`,
       },
     }).then(this._checkResponse);
   }

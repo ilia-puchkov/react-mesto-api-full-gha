@@ -23,7 +23,7 @@ import AddPlacePopup from "./AddPlacePopup.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 //Api
-import api from "../utils/Api.js";
+import Api from "../utils/Api.js";
 import auth from "../utils/Authorization.js";
 
 function App() {
@@ -48,11 +48,22 @@ function App() {
   //react elements
   const navigate = useNavigate();
 
+  const api = new Api ({
+    url: 'https://api.rerasmesto.students.nomoredomains.monster',
+    headers: {
+      'content-type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,    
+    },
+  });
+
   // Получение данных
   useEffect(() => {
-    checkToken();
-
-    if (isLoggedIn) {
+    const jwt = localStorage.getItem('jwt');
+    console.log('token ' + jwt)
+    handleCheckToken();
+    
+    console.log('getUser ' + jwt);
+    if(isLoggedIn){
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cardData]) => {
           setCurrentUser(userData);
@@ -62,7 +73,7 @@ function App() {
         .catch((err) => {
           console.log(err);
         });
-    }
+      }
   }, [isLoggedIn]);
 
   //Функции состояний
@@ -166,13 +177,12 @@ function App() {
   function handleLogin(data) {
     auth
       .login(data)
-      .then((data) => {
+      .then((data) => {        
         setIsLoggedIn(true);
-        //при запросе авторизации проверяет токен, который возвращает email пользователя
-        auth.checkToken(data.token).then((res) => {
+        localStorage.setItem('jwt', data.token);        
+        /*auth.checkToken(data.token).then((res) => {
           setEmail(res.email);
-        });
-        localStorage.setItem('jwt', data.token);
+        });*/
         navigate('/', { replace: true });
       })
       .catch((err) => {
@@ -199,8 +209,9 @@ function App() {
   }
 
   //Проверка токена
-  const checkToken = () => {
-    const jwt = localStorage.getItem("jwt");
+  const handleCheckToken = () => {
+    const jwt = localStorage.getItem('jwt');
+    console.log('check' + jwt);
     if (jwt) {
       auth
         .checkToken(jwt)
@@ -217,9 +228,9 @@ function App() {
 
   // Логаут
   function handleLogout() {
-    localStorage.removeItem("jwt");
-    setIsLoggedIn(false);
+    localStorage.removeItem('jwt'); 
     navigate("/sign-in", { replace: true });
+    setIsLoggedIn(false);
   }
 
   return (
@@ -236,6 +247,7 @@ function App() {
               path="/"
               element={
                 <ProtectedRouteElement
+                  isLoggedIn={isLoggedIn}
                   element={Main}
                   cards={cards}
                   onEditProfile={handleEditProfileClick}
@@ -243,8 +255,7 @@ function App() {
                   onEditAvatar={handleEditAvatarClick}
                   onCardClick={handleCardClick}
                   onCardLike={handleCardLike}
-                  onCardDelete={handleCardDelete}
-                  isLoggedIn={isLoggedIn}
+                  onCardDelete={handleCardDelete}                  
                 />
               }
             />

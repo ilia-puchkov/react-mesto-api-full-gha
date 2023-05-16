@@ -15,7 +15,7 @@ class Api {
   //Данные пользователя
   getUserInfo() {
     return fetch(this._url + '/users/me', {
-      method: 'GET',
+      //method: 'GET',
       headers: this._headers
     })
     .then(this._checkResponse);
@@ -94,13 +94,13 @@ class Api {
     }
   }
 }
-
+/*
 const api = new Api ({
   url: 'https://api.rerasmesto.students.nomoredomains.monster',
   headers: {
-    authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,    
   },
 });
-
-export default api;
+*/
+export default Api;
