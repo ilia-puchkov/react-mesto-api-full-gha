@@ -58,11 +58,8 @@ function App() {
 
   // Получение данных
   useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    console.log('token ' + jwt)
     handleCheckToken();
     
-    console.log('getUser ' + jwt);
     if(isLoggedIn){
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cardData]) => {
@@ -211,7 +208,6 @@ function App() {
   //Проверка токена
   const handleCheckToken = () => {
     const jwt = localStorage.getItem('jwt');
-    console.log('check' + jwt);
     if (jwt) {
       auth
         .checkToken(jwt)
