@@ -1,4 +1,4 @@
-![logo](./src/image/readme-header.png)
+![logo](./frontend/src/image/readme-header.png)
 
 # Проект: МЕСТО (на React)
 
