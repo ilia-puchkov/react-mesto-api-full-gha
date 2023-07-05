@@ -1,15 +1,16 @@
-[![Tests](https://github.com/ilia-puchkov/react-mesto-api-full-gha/actions/workflows/tests.yml/badge.svg)](https://github.com/ilia-puchkov/react-mesto-api-full-gha/actions/workflows/tests.yml)
-# react-mesto-api-full
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
-  
-Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
+![logo](./src/image/readme-header.png)
 
-Адрес репозитория: https://github.com/ilia-puchkov/react-mesto-api-full-gha
+# Проект: МЕСТО (на React)
 
-## Ссылки на проект
+### Описание
+Одностраничный сайт, позволяющий оставлять на память фотографии интересных мест или событий.
 
-IP 51.250.110.170
+### Технологии
+Сайт создан с применением:
+* HTML
+* Адаптивной верстки
+* CSS и различных стилей
+* JavaScript
+* React
 
-Frontend https://rerasmesto.students.nomoredomains.monster/
-
-Backend https://api.rerasmesto.students.nomoredomains.monster/
+Проект создан в рамках курсе "Веб-разработчик" от Яндекс.Практикум
